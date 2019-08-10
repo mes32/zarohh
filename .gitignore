@@ -1,1 +1,8 @@
+# Ignore server module files
 /node_modules/
+
+# Ignore client module files
+/client/node_modules/
+
+# Ignore client build files
+/public/

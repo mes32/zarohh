@@ -15,14 +15,20 @@ Ranked order voting system
 
 ## Setup
 ```bash
-
+# 1. Install project dependancies
+npm install
 ```
 
 ## Running locally
 ```bash
+# 1. Start the server in develpment mode (Runs on localhost:5000)
+npm run server
 
+# 1. Start the client (Runs on localhost:8080)
+npm run client
 ```
-**See:** [localhost:5000](http://localhost:5000)
+**Server:** [localhost:5000](http://localhost:5000)
+**Client:** [localhost:5000](http://localhost:8080)
 
 ## Deploying to Heroku
 
