@@ -1,0 +1,19 @@
+{
+  "name": "zarohh",
+  "version": "1.0.0",
+  "description": "Ranked order voting system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon --watch server server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Stockman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.9",
+    "passport": "^0.4.0"
+  }
+}
