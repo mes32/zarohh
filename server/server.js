@@ -8,6 +8,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configure routes
+const venueRouter = require('./routes/venue.router');
+
+app.use('/api/venue', venueRouter);
 
 // Serve the static site files
 app.use(express.static('public'));

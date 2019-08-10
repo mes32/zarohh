@@ -7,7 +7,7 @@
     "start": "node server/server.js",
     "build-local": "cd client && npm run-script build",
     "client": "cd client && npm run serve",
-    "server": "nodemon --watch server server/server.js",
+    "server": "nodemon --watch public --watch server server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mike Stockman",
