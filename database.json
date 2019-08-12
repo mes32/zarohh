@@ -1,0 +1,16 @@
+{
+    "venues": [
+        {
+            "name": "Bauhaus Brew Labs"
+        },
+        {
+            "name": "Fair State Brewing Cooperative"
+        },
+        {
+            "name": "Modist Brewing Co."
+        },
+        {
+            "name": "Pryes Brewing Company"
+        }
+    ]
+}

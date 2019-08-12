@@ -12,3 +12,6 @@
 
 # JavaScript mapping files
 *.js.map
+
+# Environment variables file
+.env
