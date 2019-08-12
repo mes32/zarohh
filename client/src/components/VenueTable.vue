@@ -11,8 +11,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="venue in venues" :key="venue.id">
-          <td>{{ venue.id }}</td>
+        <tr v-for="venue in venues" :key="venue._id">
+          <td>{{ venue._id }}</td>
           <td>{{ venue.name }}</td>
         </tr>
       </tbody>

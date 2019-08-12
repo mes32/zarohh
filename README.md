@@ -54,6 +54,7 @@ heroku addons:create mongolab
 
 ## References
 - [https://en.wikipedia.org/wiki/Ranked_voting](https://en.wikipedia.org/wiki/Ranked_voting)
+- [https://devcenter.heroku.com/articles/nodejs-mongoose](https://devcenter.heroku.com/articles/nodejs-mongoose)
 
 ## Author
 Mike Stockman

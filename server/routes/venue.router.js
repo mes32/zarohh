@@ -1,26 +1,7 @@
 const express = require('express');
 const router = express.Router();
+var mongoose = require('mongoose');
 
-const venues = [
-    {
-        id: 0,
-        name: 'Bauhaus Brew Labs'
-    },
-    {
-        id: 1,
-        name: 'Fair State Brewing Cooperative'
-    },
-    {
-        id: 2,
-        name: 'Modist Brewing Co.'
-    },
-    {
-        id: 3,
-        name: 'Pryes Brewing Company'
-    }
-];
-
-var mongoose = require("mongoose");
 var databaseURI = process.env.MONGOLAB_URI || 'mongodb://localhost/zarohh';
 
 mongoose.connect(databaseURI, function (err, res) {
@@ -53,7 +34,17 @@ venueModel.find({}).exec((err, result) => {
 });
 
 router.get('/', (req, res) => {
-    res.send(venues);
+    venueModel.find({}).exec((err, result) => {
+        if (err) {
+            console.log('Found error in venue find');
+            console.log(err.message);
+            res.send([]);
+        } else {
+            console.log('Result from venue find');
+            console.log(result);
+            res.send(result);
+        };
+    });
 });
 
 module.exports = router;
