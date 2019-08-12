@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/login">Login</router-link>
-    </div>
+    <Navbar/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Navbar
+  }
 }
 </script>
 
@@ -22,20 +24,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  font-size: 1.4rem;
-  color: #2c3e50;
-  margin-right: 10px;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

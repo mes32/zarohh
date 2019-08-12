@@ -9,3 +9,6 @@
 
 # Ignore client build files
 # /public/
+
+# JavaScript mapping files
+*.js.map
