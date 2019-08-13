@@ -42,6 +42,8 @@ heroku create
 
 # 2. Add on Heroku support for mLab/MongoDB
 heroku addons:create mongolab
+
+# 3. Create mLab database and set the Heroku Configvar MONGOLAB_URI
 ```
 
 ## Features
