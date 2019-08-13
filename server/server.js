@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const sessionMiddleware = require('./modules/session-middleware');
+const passportLocal = require('./strategies/local.strategy');
+
 const DATABASE_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/zarohh';
 
 const app = express();
@@ -9,6 +12,11 @@ const app = express();
 // Configure body-parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Configure session and local passport authentication
+app.use(sessionMiddleware);
+app.use(passportLocal.initialize());
+app.use(passportLocal.session());
 
 // Connect to database
 mongoose.connect(DATABASE_URI, { useNewUrlParser: true }, function (err, res) {
