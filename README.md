@@ -43,7 +43,10 @@ heroku create
 # 2. Add on Heroku support for mLab/MongoDB
 heroku addons:create mongolab
 
-# 3. Create mLab database and set the Heroku Configvar MONGOLAB_URI
+# 3. Create mLab database and set the Heroku environment variable MONGOLAB_URI to point to identify this database
+# mongodb+srv://<username>:<password>@<cluster_url>/<database_name>?retryWrites=true&w=majority
+
+# 4. Set SERVER_SESSION_SECRET to equal a random string
 ```
 
 ## Features
