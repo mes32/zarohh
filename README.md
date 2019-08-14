@@ -6,7 +6,7 @@ You can try out this app [here](http://zarohh.herokuapp.com) or build it locally
 ## Technology Stack
 - `User Interface` - Vue
 - `Client` - Vue
-- `Server` - Node, express
+- `Server` - Node, express, passport
 - `Database` - MongoDB
 
 ## Development Requirements
