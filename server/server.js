@@ -19,7 +19,7 @@ app.use(passportLocal.initialize());
 app.use(passportLocal.session());
 
 // Connect to database
-mongoose.connect(DATABASE_URI, { useNewUrlParser: true }, function (err, res) {
+mongoose.connect(DATABASE_URI, { useNewUrlParser: true, useCreateIndex: true, }, function (err, res) {
     if (err) {
         console.log('ERROR connecting to: ' + DATABASE_URI + '. ' + err);
     } else {
@@ -28,8 +28,10 @@ mongoose.connect(DATABASE_URI, { useNewUrlParser: true }, function (err, res) {
 });
 
 // Configure routes
+const userRouter = require('./routes/user.router');
 const venueRouter = require('./routes/venue.router');
 
+app.use('/api/user', userRouter);
 app.use('/api/venue', venueRouter);
 
 // Serve the static site files

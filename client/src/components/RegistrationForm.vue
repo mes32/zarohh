@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'registration-form',
   data() {
@@ -30,9 +32,13 @@ export default {
       event.preventDefault();
       if (this.username === '' || this.password === '') return
 
-      alert(`Registered new user '${this.username}'`);
-      this.username = ''
-      this.password = ''
+      axios.post('/api/user/register', { username: this.username, password: this.password }).then(() => {
+        this.username = ''
+        this.password = ''
+      }).catch(err => {
+        console.log(err);
+        alert(`Unable to register user: ${this.username}`);
+      });
     }
   }
 }

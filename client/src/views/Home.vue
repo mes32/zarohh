@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import VenueTable from '@/components/VenueTable'
 
 export default {
@@ -20,10 +21,8 @@ export default {
     }
   },
   mounted() {
-    fetch('/api/venue').then(response => {
-      return response.json()
-    }).then(result => {
-      this.venues = result
+    axios.get('/api/venue').then(response => {
+      this.venues = response.data
     }).catch(error => {
       console.log(error)
       alert('Unable to fetch venues')
