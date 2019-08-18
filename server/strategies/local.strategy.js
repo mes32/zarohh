@@ -5,10 +5,11 @@ const encryptAPI = require('../modules/encryption');
 const User = require('../models/User');
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user._id);
 });
 
 passport.deserializeUser((id, done) => {
+    console.log(`++++ id in deserializeUser() = ${id}`);
     User.findById(id).then((err, result) => {
         if (err) {
             console.log('Error in local.strategy deserializeUser(),', err);
@@ -38,25 +39,29 @@ passport.deserializeUser((id, done) => {
     // });
 });
 
-passport.use('local', new LocalStrategy({
-    passReqToCallback: true,
-    usernameField: 'username',
-}, ((req, username, password, done) => {
-    User.findOne({ username: `${username}` }).then((err, result) => {
-        if (err) {
-            console.log('error', err);
-            done(null, {});
-        }
+passport.use(
+    'local', 
+    new LocalStrategy({
+        passReqToCallback: true,
+        usernameField: 'username',
+    },
+    (req, username, password, done) => {
+        User.findOne({ username: username }, (err, result) => {
+            if (err) {
+                console.log('error', err);
+                done(null, {});
+            }
 
-        const user = result;
-        if (user && encryptAPI.comparePassword(password, user.password)) {
-            done(null, user);
-        } else if (user) {
-            done(null, false, { message: 'Incorrect credentials.' });
-        } else {
-            done(null, false);
-        }
-    });
+            const user = result;
+            if (user && encryptAPI.comparePassword(password, user.password)) {
+                done(null, user);
+            } else if (user) {
+                done(null, false, { message: 'Incorrect credentials.' });
+            } else {
+                done(null, false);
+            }
+        });
+    }
 
     // pool.query('SELECT * FROM person WHERE username = $1', [username])
     //     .then((result) => {
@@ -72,6 +77,6 @@ passport.use('local', new LocalStrategy({
     //         console.log('error', err);
     //         done(null, {});
     //     });
-})));
+));
 
 module.exports = passport;

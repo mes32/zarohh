@@ -18,7 +18,10 @@ router.post('/register', (req, res, next) => {
         const encryptedPassword = encryptLib.encryptPassword(password);
         User.create({ username: username, password: encryptedPassword }).then(() => {
             res.sendStatus(201);
-        })
+        }).catch((error) => {
+            console.log(error);
+            res.sendStatus(500);
+        });
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
