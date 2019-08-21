@@ -30,6 +30,7 @@ export default {
   methods: {
     submitUser(event) {
       event.preventDefault();
+      this.$store.commit('increment')
       if (this.username === '' || this.password === '') return
 
       const payload = {
